@@ -25,5 +25,3 @@
   - npm run start
 - 生产模式
   - npm run build
-# 请我喝杯奶茶
--  <img src="https://images.gitee.com/uploads/images/2020/0523/002043_e0b03bdb_1537777.png" width="300" alt="扫码打赏">
