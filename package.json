@@ -1,0 +1,83 @@
+{
+  "name": "angle-react-app",
+  "version": "0.0.12",
+  "description": "快速构建react+typescript+egg的cli工具",
+  "main": "index.js",
+  "bin": {
+    "angle-script": "bin/angle-script"
+  },
+  "hostPrefix":"angle",
+  "scripts": {
+    "prestart": "rm -rf ./build && xl_close_port -p 9200",
+    "start": "npm-run-all --parallel client debug",
+    "debug": "egg-bin debug --port=13810 --inspect=9200",
+    "client": "cross-env NODE_ENV=development node --max-old-space-size=8012 ./internals/scripts/client.js",
+    "test": "angle-script client",
+    "stop": "eggctl stop",
+    "publish": "npm publish",
+    "build": "cross-env NODE_ENV=production node --max-old-space-size=8012 ./internals/scripts/build.js"
+  },
+  "repository": {
+    "url": "https://gitee.com/niuyanjie/angle-react-app.git"
+  },
+  "author": "树上的牛儿",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-decorators": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.6",
+    "@babel/plugin-syntax-dynamic-import": "^7.8.3",
+    "@babel/plugin-transform-modules-commonjs": "^7.9.6",
+    "@babel/plugin-transform-react-jsx": "^7.9.4",
+    "@babel/polyfill": "^7.8.7",
+    "@babel/preset-env": "^7.9.6",
+    "@types/node": "^14.0.5",
+    "@types/react": "^16.9.35",
+    "circular-dependency-plugin": "^5.2.0",
+    "svg-sprite-loader": "^5.0.0",
+    "typescript": "^3.9.3",
+    "uglifyjs-webpack-plugin": "^2.2.0",
+    "webpack-bundle-analyzer": "^3.8.0",
+    "xl_close_port": "^1.0.1"
+  },
+  "keywords": [
+    "react",
+    "typescript",
+    "egg"
+  ],
+  "dependencies": {
+    "@babel/core": "^7.9.6",
+    "@types/react-dom": "^16.9.8",
+    "angle-dev-utils": "0.0.3",
+    "babel-loader": "^8.1.0",
+    "chalk": "^4.0.0",
+    "core-js": "^3.6.5",
+    "cross-env": "^7.0.2",
+    "cross-spawn": "^7.0.2",
+    "egg": "^2.26.1",
+    "egg-bin": "^4.14.1",
+    "egg-proxy": "^1.2.0",
+    "egg-scripts": "^2.13.0",
+    "egg-view-ejs": "^2.0.1",
+    "eventsource-polyfill": "^0.9.6",
+    "express": "^4.17.1",
+    "fs-extra": "^9.0.0",
+    "npm-run-all": "^4.1.5",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "source-map": "^0.7.3",
+    "svg-path-bounds": "^1.0.1",
+    "svgpath": "^2.2.3",
+    "ts-loader": "^7.0.4",
+    "webpack": "^4.43.0",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-hot-middleware": "^2.25.0"
+  },
+  "engines": {
+    "node": ">=8.0.0"
+  },
+  "eggScriptsConfig": {
+    "port": 13810,
+    "ignore-stderr": true
+  }
+}

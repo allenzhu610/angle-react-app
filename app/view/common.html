@@ -1,0 +1,6 @@
+
+<% if(varies) { %>
+  <% for(let item in varies) { %>
+    window['<%= item %>'] = '<%= varies[item] %>';
+  <% } %>
+<% } %>
